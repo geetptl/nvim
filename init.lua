@@ -17,6 +17,8 @@ vim.g.mapleader = " "
 
 require('config.lazy')
 
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
 local telescope_builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = 'Telescope buffers' })
