@@ -15,8 +15,9 @@ vim.opt.clipboard = 'unnamedplus'
 -- leader
 vim.g.mapleader = " "
 
--- un-highlight search
+-- search
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.opt.incsearch = true
 
 -- remove trailing spaces and lines
 vim.api.nvim_create_autocmd('BufWritePre', {
