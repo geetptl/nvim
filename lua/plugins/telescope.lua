@@ -11,13 +11,11 @@ return {
 
         telescope.load_extension('live_grep_args')
 
-        local map = vim.keymap.set
         local opts = { noremap = true, silent = true }
 
         vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files', unpack(opts) })
         vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers', unpack(opts) })
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags', unpack(opts) })
-
         vim.keymap.set('n', '<leader>fg', extensions.live_grep_args.live_grep_args, { desc = 'Telescope live grep with args', unpack(opts) })
     end
 }
