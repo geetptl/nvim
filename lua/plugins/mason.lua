@@ -23,6 +23,19 @@ return {
                 return orig_open_floating_preview(contents, syntax, opts, ...)
             end
 
+            vim.diagnostic.config({
+                virtual_text = {
+                    severity = nil,
+                    source = "if_many",
+                    prefix = "■",
+                    spacing = 4,
+                },
+                signs = true,
+                underline = true,
+                update_in_insert = false,
+                severity_sort = true,
+            })
+
             local on_attach = function(client, bufnr)
                 local opts = function(desc)
                     return { buffer = bufnr, desc = desc }
@@ -36,8 +49,6 @@ return {
                 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts("Rename"))
                 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts("Code Action"))
                 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end, opts("Format"))
-                vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts("Previous Diagnostic"))
-                vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts("Next Diagnostic"))
                 vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts("Line Diagnostics"))
                 vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts("Signature Help"))
             end
