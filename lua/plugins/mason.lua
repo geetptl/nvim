@@ -46,7 +46,6 @@ return {
             vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts("Rename"))
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts("Code Action"))
             vim.keymap.set("n", "F", function()
-                print("Formatting")
                 vim.lsp.buf.format({ async = true })
             end, opts("Format"))
             vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts("Line Diagnostics"))
