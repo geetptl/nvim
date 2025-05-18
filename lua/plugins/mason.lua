@@ -55,7 +55,7 @@ return {
             end
 
             mason_lspconfig.setup({
-                ensure_installed = { "lua_ls", "pyright", "gopls" },
+                ensure_installed = { "lua_ls", "pyright" },
                 handlers = {
                     function(server)
                         lspconfig[server].setup({
