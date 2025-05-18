@@ -16,10 +16,10 @@ vim.opt.clipboard = "unnamedplus"
 vim.g.mapleader = " "
 
 -- disable arrow keys
-vim.keymap.set({"n", "i", "v"}, "<Up>", "<cmd>:echoe 'NOP!'<CR>")
-vim.keymap.set({"n", "i", "v"}, "<Down>", "<cmd>:echoe 'NOP!'<CR>")
-vim.keymap.set({"n", "i", "v"}, "<Left>", "<cmd>:echoe 'NOP!'<CR>")
-vim.keymap.set({"n", "i", "v"}, "<Right>", "<cmd>:echoe 'NOP!'<CR>")
+vim.keymap.set({"n", "v"}, "<Up>", "<cmd>:echoe 'NOP!'<CR>")
+vim.keymap.set({"n", "v"}, "<Down>", "<cmd>:echoe 'NOP!'<CR>")
+vim.keymap.set({"n", "v"}, "<Left>", "<cmd>:echoe 'NOP!'<CR>")
+vim.keymap.set({"n", "v"}, "<Right>", "<cmd>:echoe 'NOP!'<CR>")
 
 -- search
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
