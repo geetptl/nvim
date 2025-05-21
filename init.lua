@@ -41,4 +41,26 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end
 })
 
+-- add border to floating previews
+local orig_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+    opts = opts or {}
+    opts.border = opts.border or "rounded"
+    return orig_open_floating_preview(contents, syntax, opts, ...)
+end
+
+-- diagnostic line config
+vim.diagnostic.config({
+    virtual_text = {
+        severity = nil,
+        source = "if_many",
+        prefix = "■",
+        spacing = 4,
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+})
+
 require("config.lazy")
