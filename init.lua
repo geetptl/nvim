@@ -16,10 +16,10 @@ vim.opt.clipboard = "unnamedplus"
 vim.g.mapleader = " "
 
 -- disable arrow keys
-vim.keymap.set({"n", "v"}, "<Up>", "<cmd>:echoe 'NOP!'<CR>")
-vim.keymap.set({"n", "v"}, "<Down>", "<cmd>:echoe 'NOP!'<CR>")
-vim.keymap.set({"n", "v"}, "<Left>", "<cmd>:echoe 'NOP!'<CR>")
-vim.keymap.set({"n", "v"}, "<Right>", "<cmd>:echoe 'NOP!'<CR>")
+vim.keymap.set({ "n", "v" }, "<Up>", "<cmd>:echoe 'NOP!'<CR>")
+vim.keymap.set({ "n", "v" }, "<Down>", "<cmd>:echoe 'NOP!'<CR>")
+vim.keymap.set({ "n", "v" }, "<Left>", "<cmd>:echoe 'NOP!'<CR>")
+vim.keymap.set({ "n", "v" }, "<Right>", "<cmd>:echoe 'NOP!'<CR>")
 
 -- search
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -62,5 +62,12 @@ vim.diagnostic.config({
     update_in_insert = false,
     severity_sort = true,
 })
+
+-- lsp shortcuts
+vim.keymap.set("n", "<Leader>F", function()
+    print("Formatting..")
+    vim.lsp.buf.format({ async = true })
+    print("")
+end, { desc = "Format current file" })
 
 require("config.lazy")

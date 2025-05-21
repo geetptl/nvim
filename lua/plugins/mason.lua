@@ -1,6 +1,6 @@
 return {
     "mason-org/mason.nvim",
-    config = function ()
+    config = function()
         local mason = require("mason")
         mason.setup({
             ui = {
