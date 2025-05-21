@@ -12,9 +12,6 @@ vim.opt.softtabstop = 4
 -- clipboard
 vim.opt.clipboard = "unnamedplus"
 
--- leader
-vim.g.mapleader = " "
-
 -- disable arrow keys
 vim.keymap.set({ "n", "v" }, "<Up>", "<cmd>:echoe 'NOP!'<CR>")
 vim.keymap.set({ "n", "v" }, "<Down>", "<cmd>:echoe 'NOP!'<CR>")
@@ -64,10 +61,6 @@ vim.diagnostic.config({
 })
 
 -- lsp shortcuts
-vim.keymap.set("n", "<Leader>F", function()
-    print("Formatting..")
-    vim.lsp.buf.format({ async = true })
-    print("")
-end, { desc = "Format current file" })
+vim.keymap.set("n", "gf", function() vim.lsp.buf.format({ async = true }) end, { desc = "Format current file" })
 
 require("config.lazy")
